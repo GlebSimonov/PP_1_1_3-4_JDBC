@@ -3,10 +3,13 @@ package jm.task.core.jdbc.model;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Table
+@Entity
+@Table(name = "users")
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "name")
@@ -19,7 +22,6 @@ public class User {
     private Byte age;
 
     public User() {
-
     }
 
     public User(String name, String lastName, Byte age) {
@@ -59,7 +61,6 @@ public class User {
     public void setAge(Byte age) {
         this.age = age;
     }
-
 
     @Override
     public boolean equals(Object o) {
